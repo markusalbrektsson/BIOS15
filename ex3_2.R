@@ -12,6 +12,9 @@ list.files()
 dat = read.csv("butterflies.csv")
 names(dat)
 
+# Check normality 
+boxplot(AdultWeight ~ LarvalHost * MaternalHost, data = dat)
+
 # Summary statistics of mean adult weight of the larvae for each treatment combination
 means = tapply(dat$AdultWeight, list(dat$MaternalHost, dat$LarvalHost), mean)
 means
